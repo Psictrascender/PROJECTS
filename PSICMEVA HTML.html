@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PSICMEVA</title>
+  <style>
+    .slide { display: none; text-align: center; padding: 50px; color: white; }
+    .active { display: block; }
+    .hidden { display: none; }
+    .result { display: none; padding: 20px; color: white; }
+    .glass {
+        background: rgba(0, 208, 255, 0.279); /* halbtransparentes Weiß */
+        border-radius: 10px;                  /* abgerundete Ecken */
+        backdrop-filter: blur(10px);          /* Unschärfe hinter dem Element */
+        -webkit-backdrop-filter: blur(10px);  /* Safari Unterstützung */
+        border: 1px solid rgba(255, 255, 255, 0.446); /* feiner Rand */
+        box-shadow: 0 4px 30px rgba(0,0,0,0.1);     /* leichter Schatten */
+        padding: 10px;
+        color: white;                         /* Textfarbe für Kontrast */
+        width: 400px;                            /* Breite des Elements */
+        align-items: center;                    /* Zentrierung des Inhalts */
+        margin: 0 auto;                          /* Zentrierung des Elements auf der Seite */
+        }
+
+    body {
+        height: 150vh;                  /* volle Höhe des Fensters */
+        display: flex;                  /* Flexbox aktivieren */
+        justify-content: center;        /* horizontal zentrieren */
+        align-items: center;            /* vertikal zentrieren */
+        background: linear-gradient(135deg, #00c6ff, #0072ff); /* schöner Verlauf */
+        margin: 1;                      /* Standardabstand entfernen */
+        }
+    
+    #score {
+    position: absolute;       /* unabhängig vom Flex-Layout */
+    top: 20px;                /* Abstand von oben */
+    left: 50%;                /* horizontal mittig */
+    transform: translateX(-50%); /* exakte Zentrierung */
+    background-color: rgba(255,255,0,0.5);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    }
+    video {
+        position: absolute;
+        top: 150;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1; /* Hintergrundvideo hinter den Inhalten */
+
+    }
+
+  </style>
+</head>
+
+
+
+<body>
+    <p id="score" style="background-color: rgba(255, 255, 0, 0.495);" class="hidden">Points: 0</p>
+    <script>
+  let v = 0;
+  let p = 0;
+
+  function addV() {
+    v += 1;
+  document.getElementById("score").innerText = "Punkte: " + v;
+  }
+  function restart() {
+    v = 0;
+    document.getElementById("score").innerText = "Punkte: " + v;
+}
+    </script>
+    
+  <div id="slide1" class="slide glass active" style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%);">
+    <h1>WELCOME</h1>
+    <p> Hello, dear user. <br> You are welcome to PSICMEVA DIGITAL! <br> <p>"Psico-medidor de Violencia" </p>
+     <p>Psycho‑violence meter </p>
+    <p>This is a test that calculates your personality traits and with some questions, 
+        we put you at some range, so with that you can know your "agression-level"</p>
+    
+
+    <button onclick="nextSlide(2); document.getElementById('score').classList.remove('hidden')"">START</button>
+      <video autoplay muted loop style="width: 100%; max-width: 1000px; border-radius: 10px; top: 0;">
+        <source src="0526.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+  </div>
+
+
+  <div id="slide2" class="slide">
+    <h1>PSICMEVA</h1>
+    <p>Let's start with the  questions</p>
+    <p>1st Question
+        <br> Have you ever prank about a person because his/her appearance?
+    </p>
+
+    <button onclick="nextSlide(3); addV()">YES</button>
+    <button onclick="nextSlide(3)">NO</button>
+  </div>
+
+  <div id="slide3" class="slide">
+    <p>2nd Question
+        <br> Have you excluded anybody from some group to make him feel bad or sad?
+    </p>
+    <button onclick="nextSlide(4); addV()">YES</button>
+    <button onclick="nextSlide(4)">NO</button>
+  </div>
+
+    <div id="slide4" class="slide">
+    <p>3rd Question
+        <br> Have you ever hit or push a person while a discussion?
+    </p>
+    <button onclick="nextSlide(5); addV()">YES</button>
+    <button onclick="nextSlide(5)">NO</button>
+    </div>
+
+    <div id="slide5" class="slide">
+    <p>4th Question
+        <br>Have you spread rumors about a person?
+    </p>
+    <button onclick="nextSlide(6); addV()">YES</button>
+    <button onclick="nextSlide(6)">NO</button>
+    </div>
+
+    <div id="slide6" class="slide">
+    <p>5th Question
+        <br> Have you ever threatened a classmate to gave you his/her belongings?
+    </p>
+    <button onclick="nextSlide(7); addV()">YES</button>
+    <button onclick="nextSlide(7)">NO</button>
+    </div>
+
+    <div id="slide7" class="slide">
+    <p>6th Question
+        <br>Have you published offensive commentaries about a person in social networks?
+    </p>
+    <button onclick="nextSlide(8); addV()">YES</button>
+    <button onclick="nextSlide(8)">NO</button>
+    </div>
+
+    <div id="slide8" class="slide">
+    <p>7th Question
+        <br>Have you made pranks to somebody that you know that could hurt him/her?
+    </p>
+    <button onclick="nextSlide(9); addV()">YES</button>
+    <button onclick="nextSlide(9)">NO</button>
+    </div>
+
+    <div id="slide9" class="slide">
+    <p>8th Question
+        <br> Have you shouted or insulted a person when they correct you?
+    </p>
+    <button onclick="nextSlide(10); addV()">YES</button>
+    <button onclick="nextSlide(10)">NO</button>
+    </div>
+
+    <div id="slide10" class="slide">
+    <p>9th Question
+        <br>Have you been in a fight without a sport reason?
+    </p>
+    <button onclick="nextSlide(11); addV()">YES</button>
+    <button onclick="nextSlide(11)">NO</button>
+    </div>
+
+    <div id="slide11" class="slide">
+    <p>10th Question
+        <br>Have you ever threatened a person to make him/her do something that you want?
+    </p>
+    <button onclick="nextSlide(12); addV()">YES</button>
+    <button onclick="nextSlide(12)">NO</button>
+    </div>
+
+    <div id="slide12" class="slide">
+    <p>11th Question
+        <br>Have you ignored or minimized the pain of a person that you know that is suffering?
+    </p>
+    <button onclick="nextSlide(13); addV()">YES</button>
+    <button onclick="nextSlide(13)">NO</button>
+    </div>
+
+    <div id="slide13" class="slide">
+    <p>12th Question
+        <br>Have you eber laughed at a person that is suffering harassment?
+    </p>
+    <button onclick="nextSlide(14); addV()">YES</button>
+    <button onclick="nextSlide(14)">NO</button>
+    </div>
+
+    <div id="slide14" class="slide">
+    <p>13th Question
+        <br>Have you ever made racist, sexist, or discriminatory comments about a person or group of people?
+    </p>
+    <button onclick="nextSlide(15); addV()">YES</button>
+    <button onclick="nextSlide(15)">NO</button>
+    </div>
+
+    <div id="slide15" class="slide">
+    <p>14th Question
+        <br>Have you damaged or destroyed the belongings of a person?
+    </p>
+    <button onclick="nextSlide(16); addV()">YES</button>
+    <button onclick="nextSlide(16)">NO</button>
+    </div>
+
+    <div id="slide16" class="slide">
+    <p>15th Question
+        <br>Have you ever witnessed a violent action and you decide to do nothing?
+    </p>
+    <button onclick="nextSlide(17); addV()">YES</button>
+    <button onclick="nextSlide(17)">NO</button>
+    </div>
+
+    <div id="slide17" class="slide">
+    <p>16th Question
+        <br>Have you ever insulted somebody trough social networks (with your personal user or anonymous)?
+    </p>
+    <button onclick="nextSlide(18); addV()">YES</button>
+    <button onclick="nextSlide(18)">NO</button>
+    </div>
+
+    <div id="slide18" class="slide">
+    <p>17th Question
+        <br>Have you ever joined a group of people to make fun of a person or group of people?
+    </p>
+    <button onclick="nextSlide(19); addV()">YES</button>
+    <button onclick="nextSlide(19)">NO</button>
+    </div>
+
+    <div id="slide19" class="slide">
+    <p>18th Question
+        <br>Have you ever made somebody feel sad, fearful, or anxious with your words or sight?
+    </p>
+    <button onclick="nextSlide(20); addV()">YES</button>
+    <button onclick="nextSlide(20)">NO</button>
+    </div>
+
+    <div id="slide20" class="slide">
+    <p>19th Question
+        <br>Have you ever lied about a person to put him/her in trouble?
+    </p>
+    <button onclick="nextSlide(21); addV()">YES</button>
+    <button onclick="nextSlide(21)">NO</button>
+    </div>
+
+    <div id="slide21" class="slide">
+    <p>20th Question
+        <br>Have you ever made somebody not participate in activities or events?
+    </p>
+    <button onclick="nextSlide(22); addV()">YES</button>
+    <button onclick="nextSlide(22)">NO</button>
+    </div>
+
+
+    <div id="slide22" class="slide" style="background-color: darkblue;">
+            <h1>RESULTS</h1> 
+            <h2>Your agression-level is:</h2> 
+
+        <div id="low" class="slide" style="background-color: greenyellow;">
+                    <h1> LOW SCORE</h1>
+                    <p> Your score is low, which indicates that there is a low level of violence in your environment.
+                        However, it's always good to stay watching and having awareness. </p>
+                    <p> You should not let your guard down, as violence can appear at any time. </p>
+                    <p> Congratulations, but don't get too comfortable. It's always good to stay alert. What could you improve? </p>
+                    <img src="b.jpeg" height="150" width="225" style="border-radius: 10px;">
+        </div>
+
+        <div id="medium" class="slide" style="background-color: orange;">
+                    <h1> MEDIUM SCORE</h1>
+                    <p>Your score is medium, which indicates that there is a moderate level of violence in your environment.
+                        It's important to stay alert and take precautions. </p>
+                    <p> You should be attentive to your surroundings and look for ways to improve the situation. Take care of your relationships and social environment. </p>
+                    <p> Don't let violence escalate. What can you avoid, correct, or solve?</p>
+                    <img src="m.jpg" height="150" width="225" style="border-radius: 10px;">
+        </div>
+
+        <div id="high" class="slide" style="background-color: red;">
+                    <h1> HIGH SCORE</h1>
+                    <p> Your score is high, it's crucial that you take measures to protect yourself and improve the situation. </p>
+                    <p> It's recommended that you seek professional help or talk to someone you trust about your concerns. 
+                        You are not alone and there are resources available to help you deal with violence in your life.</p>
+                    <p> Put a stop to violence in your life. You deserve to live without violence. </p>
+                    <img src="a.jpg" height="150" width="225" style="border-radius: 10px;">
+        </div>
+
+        <div id="veryhigh" class="slide" style="background-color: darkred;">
+                    <h1> VERY HIGH SCORE</h1>
+                    <p> Your score is very high, which indicates that there is a critical level of violence in your environment. 
+                        It's extremely important that you seek help immediately. </p>
+                    <p> It's crucial that you talk to a mental health professional or someone you trust about your experiences.
+                        You are not alone and there are resources available to help you deal with violence in your life. </p>
+                    <p> Don't stay silent. Violence is not normal and you don't have to endure it. 
+                        Seek help and support. You deserve to live without violence. </p>
+                    <img src="y.jpg" height="150" width="225" style="border-radius: 10px;">
+        </div>
+
+        <script>
+        function Result() {
+            if (v >= 0 && v < 5) 
+                {
+                
+                document.getElementById('low').classList.add('active');
+                document.getElementById('medium').classList.remove('active');
+                document.getElementById('high').classList.remove('active');
+                document.getElementById('veryhigh').classList.remove('active');
+            
+                }
+            else if (v >= 5 && v < 10) 
+                {
+                
+                    document.getElementById('medium').classList.add('active');
+                    document.getElementById('low').classList.remove('active');
+                    document.getElementById('high').classList.remove('active');
+                    document.getElementById('veryhigh').classList.remove('active');
+
+                }
+            else if (v >= 10 && v < 15) 
+                {
+                    
+                    document.getElementById('high').classList.add('active'); 
+                    document.getElementById('low').classList.remove('active');
+                    document.getElementById('medium').classList.remove('active');
+                    document.getElementById('veryhigh').classList.remove('active');
+
+                }
+            else
+                {
+                
+                    document.getElementById('veryhigh').classList.add('active'); 
+                    document.getElementById('low').classList.remove('active');
+                    document.getElementById('medium').classList.remove('active');   
+                    document.getElementById('high').classList.remove('active');
+
+                } }
+        </script>
+    <button id="res" onclick="Result(); style='display: none; align: center;'; document.getElementById('score').classList.add('hidden')">Show Result</button>
+        <div>
+        <h1>We all deserve to live without violence</h1>
+        <p>
+            All of us have the right to live without violence, regardless of our age, gender, race, or social status. Violence is not a solution. We must raise awareness about it and its effects on our lives and society. Let's act together for a safer and more peaceful world.
+        </p>
+        <img src="f.jpg" height="150" width="225" style="border-radius: 10px;">
+
+        </div>
+                
+        <button onclick="nextSlide(1); restart(); document.getElementById('res').style.display = 'block';">Restart</button>
+    </div>
+
+  <script>
+    function nextSlide(num) {
+      document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+      document.getElementById('slide' + num).classList.add('active');
+    }
+  </script> 
+</body>
+</html>
